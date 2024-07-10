@@ -15,7 +15,7 @@ const Home = ({ handleOpenModal }) => {
             <PreHeader />
             <Header />
             <Category />
-            <Hero handleOpenModal={handleOpenModal} /> {/* Pass handleOpenModal down to Hero component */}
+            <Hero handleOpenModal={handleOpenModal} /> 
             <Hero_Next />
             <h1 className="text-[27.66px] font-600 leading-[43px] ml-[600px] items-center mt-8">
                 What Are The <span className="text-[#1A73E8]">Referral Benefits?</span>
