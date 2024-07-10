@@ -1,0 +1,18 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Referral {
+  id            Int      @id @default(autoincrement())
+  referrerName  String
+  referrerEmail String
+  refereeName   String
+  refereeEmail  String
+  status        String   @default("Pending")
+  createdAt     DateTime @default(now())
+}
