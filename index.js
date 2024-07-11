@@ -27,18 +27,15 @@ app.post('/api/referrals', async (req, res) => {
             },
         });
 
-        // Using Ethereal Email for testing
         const transporter = nodemailer.createTransport({
             host: 'smtp.gmail.com',
             port: 465,
-            secure: true, // use SSL
+            secure: true,
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS,
             },
         });
-        
-
 
         const mailOptions = {
             from: process.env.EMAIL_USER,
@@ -53,7 +50,7 @@ app.post('/api/referrals', async (req, res) => {
                 return res.status(500).json({ error: 'Failed to send email' });
             }
             console.log('Email sent:', info.response);
-            res.status(200).json({ message: 'Referral submitted successfully!' });
+            res.status(200).json({ message: 'Referral submitted successfully!', referral });
         });
     } catch (error) {
         console.error('Error submitting referral:', error);
